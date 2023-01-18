@@ -48,12 +48,13 @@ function NavigationBar() {
     const [user, setUser] = React.useState<User>(store.getState().user.user)
     const [isLoggedIn, setIsLoggedIn] = React.useState<boolean>(store.getState().user.isLoggedIn)
 
-
-    // Trigger force re-render
-    store.subscribe(() => {
-        setUser(store.getState().user.user)
-        setIsLoggedIn(store.getState().user.isLoggedIn)
-    })
+    React.useEffect(() => {
+        // Trigger force re-render
+        store.subscribe(() => {
+            setUser(store.getState().user.user)
+            setIsLoggedIn(store.getState().user.isLoggedIn)
+        })
+    }, [])
 
     const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
         setAnchorElNav(event.currentTarget);
