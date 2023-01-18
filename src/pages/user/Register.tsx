@@ -30,7 +30,7 @@ function Register() {
         setPlanetCodeError(" ");
 
         if (username.length == 0) {
-            return setUsernameError("用户名不能为空")
+            return setUsernameError("账号不能为空")
         }
 
         if (password.length == 0) {
@@ -96,7 +96,7 @@ function Register() {
             <AccountCircleIcon fontSize="large" />
             <Typography sx={{ m: 1 }} fontSize="large">注册 {import.meta.env.VITE_APP_TITLE} 账号</Typography>
             <TextField
-                label="用户名"
+                label="账号"
                 type="text"
                 variant="standard"
                 required

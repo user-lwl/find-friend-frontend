@@ -23,7 +23,7 @@ function Login() {
         setPasswordError(" ");
 
         if (username.length == 0) {
-            return setUsernameError("用户名不能为空")
+            return setUsernameError("账号不能为空")
         }
 
         if (password.length == 0) {
@@ -70,7 +70,7 @@ function Login() {
             <AccountCircleIcon fontSize="large" />
             <Typography sx={{ m: 1 }} fontSize="large">登录到 {import.meta.env.VITE_APP_TITLE}</Typography>
             <TextField
-                label="用户名"
+                label="账号"
                 type="text"
                 variant="standard"
                 required
