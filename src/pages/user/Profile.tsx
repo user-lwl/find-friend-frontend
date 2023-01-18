@@ -92,7 +92,9 @@ function Profile() {
         >
             <Stack
                 maxWidth="440px"
+                width="100%"
                 padding="10px"
+                boxSizing="border-box"
                 direction="column"
                 alignItems="center"
                 spacing={2}
@@ -107,7 +109,7 @@ function Profile() {
                     type="text"
                     variant="standard"
                     required
-                    sx={{ width: "240px" }}
+                    sx={{ width: "100%" }}
                     disabled
                     value={user.userAccount}
                 />
@@ -116,10 +118,10 @@ function Profile() {
                     disabled
                     type="text"
                     variant="standard"
-                    sx={{ width: "240px" }}
+                    sx={{ width: "100%" }}
                     value={user.planetCode}
                 />
-                <FormControl sx={{ marginTop: "32px!important", width: "240px" }}
+                <FormControl sx={{ marginTop: "32px!important", width: "100%" }}
                 >
                     <InputLabel id="gender-select">性别</InputLabel>
                     <Select
@@ -145,7 +147,7 @@ function Profile() {
                     label="用户名"
                     type="text"
                     variant="standard"
-                    sx={{ width: "240px" }}
+                    sx={{ width: "100%" }}
                     value={user.username}
                     onChange={(e) => {
                         if (user) {
@@ -157,7 +159,7 @@ function Profile() {
                     label="手机号"
                     type="tel"
                     variant="standard"
-                    sx={{ width: "240px" }}
+                    sx={{ width: "100%" }}
                     value={user.phone}
                     onChange={(e) => {
                         if (user) {
@@ -169,7 +171,7 @@ function Profile() {
                     label="E-Mail"
                     type="email"
                     variant="standard"
-                    sx={{ width: "240px" }}
+                    sx={{ width: "100%" }}
                     value={user.email}
                     onChange={(e) => {
                         if (user) {
@@ -181,7 +183,7 @@ function Profile() {
                     display="flex"
                     justifyContent="space-between"
                     alignItems="center"
-                    sx={{ width: "240px" }}
+                    sx={{ width: "100%" }}
                 >
                     <TextField
                         label="输入标签"
@@ -191,7 +193,7 @@ function Profile() {
                         onChange={(e) => {
                             setTag(e.target.value)
                         }}
-                        sx={{ width: "140px" }}
+                        sx={{ width: "60%" }}
                     />
                     <Button variant='contained' onClick={handleTagAdd}>
                         添加
@@ -201,7 +203,7 @@ function Profile() {
                     display="flex"
                     justifyContent="left"
                     flexWrap="wrap"
-                    sx={{ width: "240px", "& > *": { margin: "2px!important" } }}
+                    sx={{ width: "100%", "& > *": { margin: "2px!important" } }}
                 >
                     {
                         tags.map((val, idx) => {
@@ -211,7 +213,7 @@ function Profile() {
                         })
                     }
                 </Box>
-                <Button sx={{ width: "240px" }} variant='contained' onClick={handleProfileUpdate}>
+                <Button sx={{ width: "100%" }} variant='contained' onClick={handleProfileUpdate}>
                     更新信息
                 </Button>
             </Stack>
