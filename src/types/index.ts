@@ -27,3 +27,11 @@ export type UserRegister = {
     checkPassword: string,
     planetCode: string
 }
+
+export type FileUploadRequest = {
+    file: Blob
+}
+
+export type FileUploadResponse = {
+    filePath: string
+}

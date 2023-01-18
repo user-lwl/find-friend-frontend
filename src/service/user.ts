@@ -10,11 +10,15 @@ function login(form: UserLogin) {
 }
 
 function logout() {
-    return API.post<null>("/user/logout")
+    return API.post<void>("/user/logout")
 }
 
 function register(form: UserRegister) {
-    return API.post<null>("/user/register", form)
+    return API.post<void>("/user/register", form)
 }
 
-export { getCurrentUser, login, logout, register };
+function updateUser(form: User) {
+    return API.post<void>("/user/update", form)
+}
+
+export { getCurrentUser, login, logout, register, updateUser };
