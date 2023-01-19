@@ -1,24 +1,31 @@
 import { User, UserLogin, UserRegister } from "../types";
 import API from "../utils/axios";
 
-function getCurrentUser() {
+export function getCurrentUser() {
     return API.get<User>("/user/current");
 }
 
-function login(form: UserLogin) {
+export function login(form: UserLogin) {
     return API.post<User>("/user/login", form)
 }
 
-function logout() {
+export function logout() {
     return API.post<void>("/user/logout")
 }
 
-function register(form: UserRegister) {
+export function register(form: UserRegister) {
     return API.post<void>("/user/register", form)
 }
 
-function updateUser(form: User) {
+export function updateUser(form: User) {
     return API.post<void>("/user/update", form)
 }
 
-export { getCurrentUser, login, logout, register, updateUser };
+export function deleteUser(id: number) {
+    return API.post<void>("/user/delete", id, {
+        data: id,
+        headers: {
+            'Content-Type': 'application/json; charset=utf-8'
+        }
+    })
+}

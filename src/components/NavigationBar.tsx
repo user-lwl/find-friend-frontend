@@ -9,6 +9,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import HomeIcon from '@mui/icons-material/Home';
 import GroupAddIcon from '@mui/icons-material/GroupAdd';
 import GroupsIcon from '@mui/icons-material/Groups';
+import ContactsIcon from '@mui/icons-material/Contacts';
 import Container from '@mui/material/Container';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
@@ -32,6 +33,12 @@ const menuItems = [{
     name: "匹配",
     route: "/match",
     icon: "GroupAddIcon",
+    authenticationRequired: true,
+    childs: null
+}, {
+    name: "用户",
+    route: "/users",
+    icon: "ContactsIcon",
     authenticationRequired: true,
     childs: null
 }, {
@@ -76,6 +83,7 @@ function NavigationBar() {
             store.dispatch({ type: "user/deleteUser" })
             setNotification("success", "登出成功")
             handleCloseUserMenu()
+            router.navigate("/")
         }).catch(err => {
             setNotification("error", `登出失败: ${err.message}`)
             handleCloseUserMenu()
@@ -235,6 +243,7 @@ function NavigationBar() {
                                     {item.icon == "HomeIcon" ? <HomeIcon /> : ""}
                                     {item.icon == "GroupAddIcon" ? <GroupAddIcon /> : ""}
                                     {item.icon == "GroupsIcon" ? <GroupsIcon /> : ""}
+                                    {item.icon == "ContactsIcon" ? <ContactsIcon /> : ""}
                                 </ListItemIcon>
                                 <ListItemText primary={item.name} />
                             </ListItemButton>
