@@ -12,7 +12,7 @@ function HomePage() {
             setNotification("info", "您尚未登录");
             router.navigate("/login");
         } else {
-            router.navigate("/match");
+            router.navigate("/users");
         }
     }
 
@@ -28,7 +28,7 @@ function HomePage() {
         >
             <BubbleChartIcon sx={{ fontSize: "8em", color: "#888" }} />
             <Typography sx={{ m: 2 }} fontSize="1.5em">{import.meta.env.VITE_APP_TITLE} —— {import.meta.env.VITE_APP_DESCRIPTION}</Typography>
-            <Button size='large' variant="contained" sx={{ m: 2 }} onClick={handleGettingStarted} endIcon={<StartIcon />}>立即开始</Button>
+            <Button size='large' variant="contained" sx={{ m: 2 }} onClick={handleGettingStarted} endIcon={<StartIcon />}>寻找伙伴</Button>
         </Box>
     )
 }

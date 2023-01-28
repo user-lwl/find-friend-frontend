@@ -1,11 +1,9 @@
 import * as userAPI from '../../service/user';
-import * as uploadAPI from '../../service/upload';
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { User } from '../../types';
-import { Avatar, Box, Button, CircularProgress, Stack, TextField, Select, MenuItem, InputLabel, FormControl, Chip } from '@mui/material';
-import { setNotification, unauthorizedErrorHandler } from '../../utils/notification';
+import { Box, CircularProgress } from '@mui/material';
+import { setNotification } from '../../utils/notification';
 import router from '../../router';
-import * as _ from 'lodash';
 import UserProfile from '../../components/UserProfile';
 
 function Profile() {
@@ -32,7 +30,6 @@ function Profile() {
                 alignItems="center"
                 flexDirection="column"
                 paddingTop="10px"
-                height="60%"
             >
                 <UserProfile user={user} editable={true} showSensitiveInformation={false} />
             </Box> : <Box

@@ -7,7 +7,6 @@ import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import HomeIcon from '@mui/icons-material/Home';
-import GroupAddIcon from '@mui/icons-material/GroupAdd';
 import GroupsIcon from '@mui/icons-material/Groups';
 import ContactsIcon from '@mui/icons-material/Contacts';
 import Container from '@mui/material/Container';
@@ -28,12 +27,6 @@ const menuItems = [{
     route: "/",
     icon: "HomeIcon",
     authenticationRequired: false,
-    childs: null
-}, {
-    name: "匹配",
-    route: "/match",
-    icon: "GroupAddIcon",
-    authenticationRequired: true,
     childs: null
 }, {
     name: "用户",
@@ -91,6 +84,9 @@ function NavigationBar() {
     }
 
     const handleRouteChange = (path: string) => {
+        store.dispatch({
+            type: "global/clearFilters"
+        })
         router.navigate(path)
         handleCloseNavMenu()
         handleCloseUserMenu()
@@ -98,7 +94,7 @@ function NavigationBar() {
 
     return (
         <React.Fragment>
-            <AppBar position="static">
+            <AppBar position="sticky">
                 <Container maxWidth="xl">
                     <Toolbar disableGutters>
                         {/* Desktop Logo */}
@@ -241,7 +237,6 @@ function NavigationBar() {
                             }}>
                                 <ListItemIcon>
                                     {item.icon == "HomeIcon" ? <HomeIcon /> : ""}
-                                    {item.icon == "GroupAddIcon" ? <GroupAddIcon /> : ""}
                                     {item.icon == "GroupsIcon" ? <GroupsIcon /> : ""}
                                     {item.icon == "ContactsIcon" ? <ContactsIcon /> : ""}
                                 </ListItemIcon>

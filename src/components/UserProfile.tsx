@@ -5,6 +5,7 @@ import { User } from '../types';
 import { Avatar, Box, Button, CircularProgress, Stack, TextField, Select, MenuItem, InputLabel, FormControl, Chip, FormControlLabel, Switch } from '@mui/material';
 import { setNotification, unauthorizedErrorHandler } from '../utils/notification';
 import * as _ from 'lodash';
+import store from '../redux';
 
 function UserProfile(props: { user: User, editable: boolean, showSensitiveInformation: boolean }) {
     let parsedTags = [];
@@ -58,6 +59,12 @@ function UserProfile(props: { user: User, editable: boolean, showSensitiveInform
         let form = _.cloneDeepWith(user);
         form.tags = JSON.stringify(tags);
         userAPI.updateUser(form).then(() => {
+            userAPI.getCurrentUser().then(user => {
+                store.dispatch({
+                    type: "user/setUser",
+                    user: user
+                })
+            })
             setNotification("success", "用户信息更新成功")
         }).catch((err) => {
             setNotification("error", `用户信息更新失败: ${err.message}`)
