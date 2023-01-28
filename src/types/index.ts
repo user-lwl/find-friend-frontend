@@ -126,3 +126,5 @@ export type ListTeamRequest = {
     pageSize?: number,
     pageNum?: number
 }
+
+export type UserFilterOperations = "recommend" | "username" | "tags";
